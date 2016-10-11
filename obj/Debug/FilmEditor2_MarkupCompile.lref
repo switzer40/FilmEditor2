@@ -1,8 +1,12 @@
 ﻿
 FG:\GitHub\FilmEditor2\FilmEditor2\App.xaml;;
 FG:\GitHub\FilmEditor2\FilmEditor2\MainWindow.xaml;;
-FG:\GitHub\FilmEditor2\FilmEditor2\Views\FilmDialog.xaml;;
-FG:\GitHub\FilmEditor2\FilmEditor2\Views\FilmListView.xaml;;
-FG:\GitHub\FilmEditor2\FilmEditor2\Views\FilmView.xaml;;
-FG:\GitHub\FilmEditor2\FilmEditor2\Views\StringiDalog.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\BaseViews\PersonView.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\ListViews\PersonListView.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\UtilityViews\FilmDialog.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\ListViews\FilmListView.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\BaseViews\FilmView.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\UtilityViews\FilmMessageBox.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\UtilityViews\StringChooser.xaml;;
+FG:\GitHub\FilmEditor2\FilmEditor2\Views\UtilityViews\StringiDalog.xaml;;
 

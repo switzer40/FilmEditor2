@@ -1,7 +1,9 @@
 ﻿using FilmEditor2.Core.Abstractions;
+using FilmEditor2.Core.Interfaces;
 using FilmEditor2.Infrastructure.ConcreteRepositories.InMemory;
 using FilmEditor2.ViewModels;
 using FilmEditor2.Views;
+using FilmEditor2.Views.ListViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +26,11 @@ namespace FilmEditor2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IRepositoryFactory _factory;
         public MainWindow()
         {
             InitializeComponent();
+            _factory = new InMemoryRepositoryFactory();
         }
 
         private void Close(object sender, RoutedEventArgs e)
@@ -35,22 +39,25 @@ namespace FilmEditor2
         }
 
         private void FilmPanel(object sender, RoutedEventArgs e)
-        {
-            InMemoryRepositoryFactory factory = new InMemoryRepositoryFactory();
-            FilmRepository filmRepo = factory.CreateFilmRepository();
+        {             
+            FilmRepository filmRepo = _factory.CreateFilmRepository();
             filmRepo.AddRange(SeedCollection._baseFilmList);
-            FilmListViewModel model = new FilmListViewModel(factory);
+            FilmListViewModel model = new FilmListViewModel(_factory);
             FilmListView filmView = new FilmListView(model);
             filmView.Show();            
         }
 
         private void PersonPanel(object sender, RoutedEventArgs e)
         {
-
+            PersonRepository personRepo = this._factory.CreatePersonRepository();
+            personRepo.AddRange(SeedCollection._basePersonList);           
+            PersonListView personView = new PersonListView(_factory);
+            personView.Show();
         }
 
         private void CountryPanel(object sender, RoutedEventArgs e)
         {
+            
 
         }
 

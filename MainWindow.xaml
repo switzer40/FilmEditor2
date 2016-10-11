@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmEditor2"
         mc:Ignorable="d"
+        FontWeight="Bold"
+        FontSize="18"
+         BorderBrush="Navy"
+         BorderThickness="4"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <WrapPanel Orientation="Horizontal">

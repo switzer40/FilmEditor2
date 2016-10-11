@@ -59,16 +59,29 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\FilmListViewModel.cs" />
-    <Compile Include="Views\FilmDialog.xaml.cs">
+    <Compile Include="ViewModels\PersonListViewModel.cs" />
+    <Compile Include="Views\BaseViews\PersonView.xaml.cs">
+      <DependentUpon>PersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListViews\PersonListView.xaml.cs">
+      <DependentUpon>PersonListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\FilmDialog.xaml.cs">
       <DependentUpon>FilmDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FilmListView.xaml.cs">
+    <Compile Include="Views\ListViews\FilmListView.xaml.cs">
       <DependentUpon>FilmListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FilmView.xaml.cs">
+    <Compile Include="Views\BaseViews\FilmView.xaml.cs">
       <DependentUpon>FilmView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StringiDalog.xaml.cs">
+    <Compile Include="Views\UtilityViews\FilmMessageBox.xaml.cs">
+      <DependentUpon>FilmMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\StringChooser.xaml.cs">
+      <DependentUpon>StringChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\StringiDalog.xaml.cs">
       <DependentUpon>StringiDalog.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -83,19 +96,35 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\FilmDialog.xaml">
+    <Page Include="Views\BaseViews\PersonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FilmListView.xaml">
+    <Page Include="Views\ListViews\PersonListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FilmView.xaml">
+    <Page Include="Views\UtilityViews\FilmDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StringiDalog.xaml">
+    <Page Include="Views\ListViews\FilmListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseViews\FilmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\FilmMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\StringChooser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\StringiDalog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
