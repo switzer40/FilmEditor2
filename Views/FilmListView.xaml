@@ -1,0 +1,48 @@
+﻿<Window x:Class="FilmEditor2.Views.FilmListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmEditor2.Views"
+        mc:Ignorable="d"
+        Title="FilmListView" Height="300" Width="320">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Close" Click="Close"/>
+            <MenuItem Header="Find" Click="Find"/>
+            <MenuItem Header="Crud">
+                <MenuItem Header="New" Click="New"/>
+                <MenuItem Header="Save" Click="Save"/>
+                <MenuItem Header="Delete" Click="Delete"/>
+                <MenuItem Header="Update" Click="Update"/>
+            </MenuItem>
+            <MenuItem Header="Contributors">
+                <MenuItem Header="Actors" Click="Actors"/>
+                <MenuItem Header="Directors" Click="Directors"/>
+                <MenuItem Header="Composers" Click="Composers"/>
+            </MenuItem>
+            <MenuItem Header="Countries" Click="Countries"/>
+        </Menu>
+        <ScrollViewer Grid.Row="1">
+            <ListView
+                ItemsSource="{Binding Films}"
+                SelectedItem="{Binding CurrentFilm}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Barcode" Width="Auto" DisplayMemberBinding="{Binding Barcode}"/>
+                        <GridViewColumn Header="Title" Width="Auto" DisplayMemberBinding="{Binding Title}"/>
+                        <GridViewColumn Header="Year" Width="Auto" DisplayMemberBinding="{Binding Year}"/>
+                        <GridViewColumn Header="Length" Width="Auto" DisplayMemberBinding="{Binding Length}"/>
+                        <GridViewColumn Header="Location" Width="Auto" DisplayMemberBinding="{Binding Location.Description}"/>
+                        <GridViewColumn Header="Subtitles" Width="Auto" DisplayMemberBinding="{Binding HasGermanSubtitles}"/>
+                        <GridViewColumn Header="Blu-ray" Width="Auto" DisplayMemberBinding="{Binding IsBluray}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</Window>
