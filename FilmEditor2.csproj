@@ -58,10 +58,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\CountryListViewModel.cs" />
     <Compile Include="ViewModels\FilmListViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
+    <Compile Include="Views\BaseViews\CountryView.xaml.cs">
+      <DependentUpon>CountryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BaseViews\PersonView.xaml.cs">
       <DependentUpon>PersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListViews\CountryListView.xaml.cs">
+      <DependentUpon>CountryListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListViews\PersonListView.xaml.cs">
       <DependentUpon>PersonListView.xaml</DependentUpon>
@@ -96,7 +103,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BaseViews\CountryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BaseViews\PersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListViews\CountryListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

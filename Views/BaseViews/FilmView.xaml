@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmEditor2.Views"
         mc:Ignorable="d"
+        FontWeight="Bold"
+        FontSize="18"
+         BorderBrush="Navy"
+         BorderThickness="4"
         Title="FilmView" Height="300" Width="300">
     <Grid>
         <Grid.RowDefinitions>

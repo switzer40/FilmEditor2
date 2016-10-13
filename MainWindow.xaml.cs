@@ -65,7 +65,8 @@ namespace FilmEditor2
 
         private void CountryPanel(object sender, RoutedEventArgs e)
         {
-            
+            CountryListView countryView = new CountryListView(_factory);
+            countryView.Show();
 
         }
 

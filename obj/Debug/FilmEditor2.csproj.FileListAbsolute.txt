@@ -35,3 +35,7 @@ G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\FilmEditor2.Properties.Resources.res
 G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\FilmEditor2.csproj.GenerateResource.Cache
 G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\FilmEditor2.exe
 G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\FilmEditor2.pdb
+G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\Views\ListViews\CountryListView.g.cs
+G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\Views\ListViews\CountryListView.baml
+G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\Views\BaseViews\CountryView.g.cs
+G:\GitHub\FilmEditor2\FilmEditor2\obj\Debug\Views\BaseViews\CountryView.baml
