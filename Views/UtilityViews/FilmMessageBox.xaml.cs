@@ -19,9 +19,11 @@ namespace FilmEditor2.Views.UtilityViews
     /// </summary>
     public partial class FilmMessageBox : Window
     {
-        public FilmMessageBox()
+        public FilmMessageBox(string message)
         {
             InitializeComponent();
+            Message = message;
+            DataContext = this;
         }
 
 

@@ -10,7 +10,7 @@
         FontSize="18"
          BorderBrush="Navy"
          BorderThickness="4"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="575">
     <Grid>
         <WrapPanel Orientation="Horizontal">
             <Button Content="Exit" Click="Close"/>

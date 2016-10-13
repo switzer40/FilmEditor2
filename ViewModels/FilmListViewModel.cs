@@ -100,7 +100,26 @@ namespace FilmEditor2.ViewModels
 
         internal void ShowCountries()
         {
-            throw new NotImplementedException();
+            FilmCountryRepository fcRepo = _factory.CreateFilmCountryRepository();
+            CountryRepository cRepo = _factory.CreateCountryRepository();
+            List<Guid> ids = fcRepo.ListCountryIdsForFilmId(CurrentFilm.Id) as List<Guid>;
+            List<string> names = new List<string>();          
+            foreach(Guid g in ids)
+            {
+                Country c = cRepo.GetById(g);
+                names.Add(c.Name);
+            }
+            if (names.Count == 0)
+            {
+                FilmMessageBox box = new FilmMessageBox("There are as yet no countries defined for this film.");
+                box.Show();
+            }
+            else
+            {
+                StringChooser chooser = new StringChooser(names);
+                chooser.Show();
+            }
+           
         }
 
         // Using a DependencyProperty as the backing store for CurrentFilm.  This enables animation, styling, binding, etc...
@@ -127,8 +146,7 @@ namespace FilmEditor2.ViewModels
             switch(candidates.Count)
             {
                 case 0:
-                    FilmMessageBox box = new FilmMessageBox();
-                    box.Message = "The database knows no person with last name containing " + lastName;
+                    FilmMessageBox box = new FilmMessageBox("The database knows no person with last name containing " + lastName);                    
                     box.Show();
                     break;
                 case 1:

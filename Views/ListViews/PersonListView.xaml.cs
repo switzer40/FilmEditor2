@@ -76,8 +76,7 @@ namespace FilmEditor2.Views.ListViews
                 switch (candidates.Count)
                 {
                     case 0:
-                        FilmMessageBox box = new FilmMessageBox();
-                        box.Message = "No known person has a last name containing " + lastName;
+                        FilmMessageBox box = new FilmMessageBox("No known person has a last name containing " + lastName);                        
                         box.Show();
                         break;
                     case 1:
