@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:FilmEditor2"
         mc:Ignorable="d"
         FontWeight="Bold"
+        FontFamily="Times New Roman"
         FontSize="18"
          BorderBrush="Navy"
          BorderThickness="4"

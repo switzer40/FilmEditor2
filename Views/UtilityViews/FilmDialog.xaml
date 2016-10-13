@@ -1,29 +1,27 @@
-﻿<Window x:Class="FilmEditor2.Views.FilmDialog"
+﻿<Window x:Class="FilmEditor2.Views.UtilityViews.FilmDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FilmEditor2.Views"
+        xmlns:local="clr-namespace:FilmEditor2.Views.UtilityViews"
         mc:Ignorable="d"
-        Title="FilmDialog" Height="130" Width="300">
+        Title="FilmDialog" Height="300" Width="300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3.3*"/>
+            <RowDefinition Height="3.3*"/>
+            <RowDefinition Height="3.4*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding WhatText}"/>
-        <DockPanel Grid.Row="1" LastChildFill="True">
+        <DockPanel LastChildFill="True">
             <Label Content="Film Title" DockPanel.Dock="Left"/>
-            <TextBox x:Name="yourStringTextBox" Text="{Binding YourString}" DockPanel.Dock="Right"/>
+            <TextBox x:Name="filmTitleTextBox" Text="{Binding FilmTitle, Mode=TwoWay}" DockPanel.Dock="Right"/>
         </DockPanel>
-        <DockPanel Grid.Row="2" LastChildFill="True">
-            <Label Content="Bliu-ray only?" DockPanel.Dock="Left"/>
-            <CheckBox x:Name="bluRayCheckBox" IsChecked="{Binding IsBluray}" DockPanel.Dock="Right"/>
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <Label Content="Blu-ray only?" DockPanel.Dock="Left"/>
+            <CheckBox x:Name="blurayCheckBox" IsChecked="{Binding IsBluray, Mode=TwoWay}" DockPanel.Dock="Right"/>
             <TextBlock/>
         </DockPanel>
-        <DockPanel Grid.Row="3" LastChildFill="True">
+        <DockPanel Grid.Row="2" LastChildFill="True">
             <Button Content="Accept" Click="DoAccept" DockPanel.Dock="Left"/>
             <Button Content="Reject" Click="DoReject" DockPanel.Dock="Right"/>
             <TextBlock/>

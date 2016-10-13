@@ -31,6 +31,19 @@ namespace FilmEditor2
         {
             InitializeComponent();
             _factory = new InMemoryRepositoryFactory();
+            PopulteRepositories();
+        }
+
+        private void PopulteRepositories()
+        {
+            FilmRepository filmRepo = _factory.CreateFilmRepository();
+            filmRepo.AddRange(SeedCollection._baseFilmList);
+            PersonRepository personRepo = _factory.CreatePersonRepository();
+            personRepo.AddRange(SeedCollection._basePersonList);
+            CountryRepository countryRepo = _factory.CreateCountryRepository();
+            countryRepo.AddRange(SeedCollection._baseCountryList);
+            LocationRepository locationRepo = _factory.CreateLocationRepository();
+            locationRepo.AddRange(SeedCollection._baseLocationist);
         }
 
         private void Close(object sender, RoutedEventArgs e)
@@ -39,18 +52,13 @@ namespace FilmEditor2
         }
 
         private void FilmPanel(object sender, RoutedEventArgs e)
-        {             
-            FilmRepository filmRepo = _factory.CreateFilmRepository();
-            filmRepo.AddRange(SeedCollection._baseFilmList);
-            FilmListViewModel model = new FilmListViewModel(_factory);
-            FilmListView filmView = new FilmListView(model);
+        {                                                 
+            FilmListView filmView = new FilmListView(_factory);
             filmView.Show();            
         }
 
         private void PersonPanel(object sender, RoutedEventArgs e)
-        {
-            PersonRepository personRepo = this._factory.CreatePersonRepository();
-            personRepo.AddRange(SeedCollection._basePersonList);           
+        {                               
             PersonListView personView = new PersonListView(_factory);
             personView.Show();
         }

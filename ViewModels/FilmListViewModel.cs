@@ -9,6 +9,7 @@ using FilmEditor2.Core.Model;
 using FilmEditor2.Core.Interfaces;
 using FilmEditor2.Core.Abstractions;
 using FilmEditor2.Views;
+using FilmEditor2.Views.UtilityViews;
 
 namespace FilmEditor2.ViewModels
 {
@@ -51,6 +52,22 @@ namespace FilmEditor2.ViewModels
             CurrentFilm = new Film();
         }
 
+        internal void ShowContributors(Role role)
+        {
+            FilmPersonRepository filmPersonRepo = _factory.CreateFilmPersonRepository();
+            PersonRepository personRepo = _factory.CreatePersonRepository();
+            List<Guid> ids = filmPersonRepo.ListPersonIdsForFilmIdAndRole(CurrentFilm.Id, role) as List<Guid>;
+            List<string> fullNames = new List<string>();
+            foreach (Guid g in ids)
+            {
+                Person p = personRepo.GetById(g);
+                fullNames.Add(p.FullName);
+            }
+            StringChooser chooser = new StringChooser(fullNames);
+            chooser.Show();
+        }
+        
+
         internal void Save()
         {
             CurrentFilm = _filmRepository.Add(CurrentFilm);
@@ -73,7 +90,7 @@ namespace FilmEditor2.ViewModels
             if (dialog.Accept)
             {
                 string title = dialog.FilmTitle;
-                bool bluray = dialog.IsBlurayOnly;
+                bool bluray = dialog.IsBluray;
                 CurrentFilm = _filmRepository.GetByTitelAndType(title, bluray);
                 FilmView view = new FilmView(CurrentFilm);
                 view.Show();
@@ -81,10 +98,90 @@ namespace FilmEditor2.ViewModels
             }
         }
 
+        internal void ShowCountries()
+        {
+            throw new NotImplementedException();
+        }
+
         // Using a DependencyProperty as the backing store for CurrentFilm.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CurrentFilmProperty =
             DependencyProperty.Register("CurrentFilm", typeof(Film), typeof(FilmListViewModel), new PropertyMetadata(null));
 
+        internal void AddContributor(Role role)
+        {
+            string lastName = GetAString("A partial last name");
+            Person p = GetPersonByLastName(lastName);
+            FilmPersonRepository filmPersonRepo = _factory.CreateFilmPersonRepository();
+            FilmPerson fp = new FilmPerson();
+            fp.FilmId = CurrentFilm.Id;
+            fp.PersonId = p.Id;
+            fp.Roles.Add(role);
+            filmPersonRepo.Add(fp);
+        }
+
+        private Person GetPersonByLastName(string lastName)
+        {
+            Person result = null;
+            PersonRepository personRepo = _factory.CreatePersonRepository();
+            List<Person> candidates = personRepo.ListByLastName(lastName) as List<Person>;
+            switch(candidates.Count)
+            {
+                case 0:
+                    FilmMessageBox box = new FilmMessageBox();
+                    box.Message = "The database knows no person with last name containing " + lastName;
+                    box.Show();
+                    break;
+                case 1:
+                    result = candidates[0];
+                    break;
+                default:
+                    result = ChooseOnePerson(candidates);
+                    break;
+            }
+            return result;
+        }
+
+        private Person ChooseOnePerson(List<Person> candidates)
+        {
+            Person result = null;
+            List<string> fullNames = new List<string>();
+            PersonRepository personRepo = _factory.CreatePersonRepository();
+            foreach(Person p in candidates)
+            {
+                fullNames.Add(p.FullName);
+            }
+            StringChooser chooser = new StringChooser(fullNames);
+            chooser.ShowDialog();
+            if (chooser.Accepted)
+            {
+                string fullName = chooser.ChosenString;
+                result = personRepo.GetByFullName(fullName);
+            }               
+            return result;
+        }
+
+        private string GetAString(string whatToAskFor)
+        {
+            string result = "";
+            StringiDalog dialog = new StringiDalog();
+            dialog.WhatText = whatToAskFor;
+            dialog.ShowDialog();
+            if (dialog.Accept)
+                result = dialog.YourString;
+            return result;
+        }
+
+        public void AddCountry()
+        {
+            string abbrev = GetAString("A country abbreviation");
+            CountryRepository countryRepo = _factory.CreateCountryRepository();
+            Country c = countryRepo.GetByAbreviation(abbrev);
+            FilmCountry fc = new FilmCountry();
+            fc.FilmId = CurrentFilm.Id;
+            fc.CountryId = c.Id;
+            FilmCountryRepository filmCountryRepo = _factory.CreateFilmCountryRepository();
+            filmCountryRepo.Add(fc);            
+        }
     }
 }
 

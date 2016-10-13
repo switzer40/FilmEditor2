@@ -66,14 +66,14 @@
     <Compile Include="Views\ListViews\PersonListView.xaml.cs">
       <DependentUpon>PersonListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UtilityViews\FilmDialog.xaml.cs">
-      <DependentUpon>FilmDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ListViews\FilmListView.xaml.cs">
       <DependentUpon>FilmListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BaseViews\FilmView.xaml.cs">
       <DependentUpon>FilmView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UtilityViews\FilmDialog.xaml.cs">
+      <DependentUpon>FilmDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UtilityViews\FilmMessageBox.xaml.cs">
       <DependentUpon>FilmMessageBox.xaml</DependentUpon>
@@ -104,15 +104,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UtilityViews\FilmDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ListViews\FilmListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BaseViews\FilmView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UtilityViews\FilmDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

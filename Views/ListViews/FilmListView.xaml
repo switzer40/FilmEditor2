@@ -24,17 +24,26 @@
                 <MenuItem Header="Delete" Click="Delete"/>
                 <MenuItem Header="Update" Click="Update"/>
             </MenuItem>
-            <MenuItem Header="Contributors">
+            <MenuItem Header=" Add a Contributor">
+                <MenuItem Header="Actor" Click="AddActor"/>
+                <MenuItem Header="Director" Click="AddDirector"/>
+                <MenuItem Header="Composer" Click="AddComposer"/>
+            </MenuItem>
+            <MenuItem Header="Show Contributors">
                 <MenuItem Header="Actors" Click="Actors"/>
                 <MenuItem Header="Directors" Click="Directors"/>
                 <MenuItem Header="Composers" Click="Composers"/>
             </MenuItem>
-            <MenuItem Header="Countries" Click="Countries"/>
+            <MenuItem Header="Add  a Country" Click="AddCountry"/>
+            <MenuItem Header="Show Countries" Click="Countries"/>
         </Menu>
         <ScrollViewer Grid.Row="1">
             <ListView
+                x:Name="filmListView"
+                MouseDoubleClick="filmListView_MouseDoubleClick"
                 ItemsSource="{Binding Films}"
-                SelectedItem="{Binding CurrentFilm}">
+                SelectedItem="{Binding CurrentFilm}"
+                SelectionChanged="filmListView_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Barcode" Width="Auto" DisplayMemberBinding="{Binding Barcode}"/>

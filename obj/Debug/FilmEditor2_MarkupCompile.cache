@@ -14,7 +14,7 @@ G:\GitHub\FilmEditor2\FilmEditor2\App.xaml
 
 151602764653
 15-755735231
-MainWindow.xaml;Views\BaseViews\PersonView.xaml;Views\ListViews\PersonListView.xaml;Views\UtilityViews\FilmDialog.xaml;Views\ListViews\FilmListView.xaml;Views\BaseViews\FilmView.xaml;Views\UtilityViews\FilmMessageBox.xaml;Views\UtilityViews\StringChooser.xaml;Views\UtilityViews\StringiDalog.xaml;
+MainWindow.xaml;Views\BaseViews\PersonView.xaml;Views\ListViews\PersonListView.xaml;Views\ListViews\FilmListView.xaml;Views\BaseViews\FilmView.xaml;Views\UtilityViews\FilmDialog.xaml;Views\UtilityViews\FilmMessageBox.xaml;Views\UtilityViews\StringChooser.xaml;Views\UtilityViews\StringiDalog.xaml;
 
 False
 

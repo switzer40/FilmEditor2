@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FilmEditor2.Views
+namespace FilmEditor2.Views.UtilityViews
 {
     /// <summary>
     /// Interaction logic for FilmDialog.xaml
@@ -24,7 +24,6 @@ namespace FilmEditor2.Views
             InitializeComponent();
         }
         public bool Accept;
-
 
 
         public string FilmTitle
@@ -39,15 +38,17 @@ namespace FilmEditor2.Views
 
 
 
-        public bool IsBlurayOnly
+        public bool IsBluray
         {
-            get { return (bool)GetValue(IsBlurayOnlyProperty); }
-            set { SetValue(IsBlurayOnlyProperty, value); }
+            get { return (bool)GetValue(IsBlurayProperty); }
+            set { SetValue(IsBlurayProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsBlurayOnly.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IsBlurayOnlyProperty =
-            DependencyProperty.Register("IsBlurayOnly", typeof(bool), typeof(FilmDialog), new PropertyMetadata(false));
+        // Using a DependencyProperty as the backing store for IsBluray.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsBlurayProperty =
+            DependencyProperty.Register("IsBluray", typeof(bool), typeof(FilmDialog), new PropertyMetadata(false));
+
+
 
         private void DoAccept(object sender, RoutedEventArgs e)
         {

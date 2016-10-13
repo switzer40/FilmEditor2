@@ -1,4 +1,7 @@
-﻿using FilmEditor2.ViewModels;
+﻿using FilmEditor2.Core.Abstractions;
+using FilmEditor2.Core.Interfaces;
+using FilmEditor2.Core.Model;
+using FilmEditor2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +23,14 @@ namespace FilmEditor2.Views
     /// </summary>
     public partial class FilmListView : Window
     {
-        public FilmListView(FilmListViewModel model)
+        private IRepositoryFactory _factory;
+        private bool _doubleClicked = false;
+        public FilmListView(IRepositoryFactory factory)
         {
             InitializeComponent();
-            Model = model;
+            _factory = factory;
+            FilmRepository filmRepo = _factory.CreateFilmRepository();
+            Model = new FilmListViewModel(factory);
             DataContext = Model;
         }
 
@@ -45,52 +52,93 @@ namespace FilmEditor2.Views
 
         private void Actors(object sender, RoutedEventArgs e)
         {
-
+            Model.ShowContributors(Role.Actor);
         }
 
         private void Directors(object sender, RoutedEventArgs e)
         {
-
+            Model.ShowContributors(Role.Director);
         }
 
         private void Composers(object sender, RoutedEventArgs e)
         {
-
+            Model.ShowContributors(Role.Composer);
         }
 
         private void New(object sender, RoutedEventArgs e)
         {
-
+            Model.New();
         }
 
         private void Save(object sender, RoutedEventArgs e)
         {
-
+            Model.Save();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-
+            Model.Delete();
         }
 
         private void Update(object sender, RoutedEventArgs e)
         {
-
+            Model.Update();
         }
 
         private void Find(object sender, RoutedEventArgs e)
         {
-
+            Model.Find();
         }
 
         private void Countries(object sender, RoutedEventArgs e)
         {
-
+            Model.ShowCountries();
         }
 
         private void Close(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+        private void AddActor(object sender, RoutedEventArgs e)
+        {
+            AddContributor(Role.Actor);
+        }
+        private void AddContributor(Role role)
+        {
+            Model.AddContributor(role);
+        }
+
+        private void AddDirector(object sender, RoutedEventArgs e)
+        {
+            AddContributor(Role.Director);
+        }
+
+        private void AddComposer(object sender, RoutedEventArgs e)
+        {
+            AddContributor(Role.Composer);
+        }
+
+        private void AddCountry(object sender, RoutedEventArgs e)
+        {
+            Model.AddCountry();
+        }
+
+
+        private void filmListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(_doubleClicked)
+            {
+                Model.CurrentFilm = e.AddedItems[0] as Film;
+                _doubleClicked = false;
+            }
+            
+        }
+
+        private void filmListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            _doubleClicked = true;
+        }
+        
     }
 }
